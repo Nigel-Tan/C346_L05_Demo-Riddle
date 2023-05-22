@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d("MainActivity", "onCreate() called.");
+
         //link view to variable
         tvQ1 = findViewById(R.id.textViewQ1);
         btnRevealQ1 = findViewById(R.id.buttonRevealQ1);
@@ -28,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         btnRevealQ1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this,AnswerActivity1.class);
-                Intent intent = new Intent(MainActivity.this,EnhancedAnswer.class);
+                Intent intent = new Intent(MainActivity.this,AnswerActivity1.class);
+                //Intent intent = new Intent(MainActivity.this,EnhancedAnswer.class);
                 intent.putExtra("Question", "Q1");
                 intent.putExtra("Ans","Queue"); //enchanced portion
                 startActivity(intent);
@@ -39,12 +42,43 @@ public class MainActivity extends AppCompatActivity {
         BtnRevealQ2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this,AnswerActivity2.class);
-                Intent intent = new Intent(MainActivity.this,EnhancedAnswer.class);
+                Intent intent = new Intent(MainActivity.this,AnswerActivity2.class);
+                //Intent intent = new Intent(MainActivity.this,EnhancedAnswer.class);
                 intent.putExtra("Question", "Q2");
                 intent.putExtra("Ans","Gone"); //enchanced portion
                 startActivity(intent);
             }
         });
     }
+    @Override
+    protected void onStart() {
+        Log.d("MainActivity", "onStart() called.");
+        super.onStart();
+    }
+    @Override
+    protected void onResume() {
+        Log.d("MainActivity", "onResume() called.");
+        super.onResume();
+    }
+    @Override
+    protected void onPause() {
+        Log.d("MainActivity", "onPause() called.");
+        super.onPause();
+    }
+    @Override
+    protected void onStop() {
+        Log.d("MainActivity", "onStop() called.");
+        super.onStop();
+    }
+    @Override
+    protected void onDestroy() {
+        Log.d("MainActivity", "onDestroy() called.");
+        super.onDestroy();
+    }
+    @Override
+    protected void onRestart() {
+        Log.d("MainActivity", "onRestart() called.");
+        super.onRestart();
+    }
+
 }
